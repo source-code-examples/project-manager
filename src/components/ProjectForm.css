@@ -1,0 +1,89 @@
+.app {
+  padding-top: 220px;
+}
+
+* {
+  /* outline: 1px solid red; */
+}
+
+.app_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #dcdcdc;
+  /* margin-top: 280px; */
+  margin-top: 40px;
+  padding-bottom: 140px;
+  /* height: 220px; */
+}
+
+.app_header > form {
+  width: 50%;
+  /* margin-bottom: 300px; */
+  margin-bottom: 50px;
+}
+
+.project_input {
+  font-size: 20px;
+  font-weight: 500;
+  background: #f9f9f9;
+  color: #000;
+  border: 1px solid #fde3e6;
+  border-radius: 5px;
+  padding: 8px 12px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.project_input::placeholder {
+  color: #989898;
+}
+
+.project_textarea {
+  width: 100%;
+  min-height: 80px;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical; /* user can resize height */
+}
+
+.project_form_bottom_line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.project_actions {
+  display: flex;
+  /* gap: 10px; */
+  align-items: center;
+}
+
+.project_status {
+  font-size: 15px;
+  font-weight: 500;
+  border: 1px solid #999;
+  border-radius: 5px;
+  width: 110px;
+  height: 40px;
+  padding: 0 5px;
+  margin-left: 30px;
+}
+
+.project_submit {
+  font-size: 15px;
+  font-weight: 500;
+  background-color: #6457f9;
+  color: #fff;
+  border-radius: 5px;
+  height: 40px;
+  width: 100px;
+  padding: 3px 13px;
+  margin-left: 10px;
+  border: none;
+  cursor: pointer;
+}

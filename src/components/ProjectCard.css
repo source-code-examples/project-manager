@@ -1,0 +1,81 @@
+.project_card {
+  width: 100%;
+  min-height: 100px;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.project_card p {
+  margin: 5px 0;
+}
+
+.project_description {
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.4;
+  max-width: 250px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* max. 5 lines */
+  -webkit-box-orient: vertical;
+}
+
+.project_text {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.project_read_more {
+  background: none;
+  border: none;
+  color: #6457f9;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.project_card_bottom_line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project_remove,
+.project_edit {
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.project_remove:hover,
+.project_edit:hover {
+  background-color: #ebebeb;
+}
+
+.edit_icon {
+  width: 24px;
+  opacity: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+.remove_icon {
+  width: 28px;
+  opacity: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+.project_remove:hover .remove_icon,
+.project_edit:hover .edit_icon {
+  opacity: 80%;
+}

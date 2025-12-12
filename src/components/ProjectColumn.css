@@ -1,0 +1,10 @@
+.project_column_heading {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.project_column_icon {
+  width: 35px;
+  margin-right: 5px;
+}
