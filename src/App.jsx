@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import ProjectForm from "./components/ProjectForm";
 import ProjectColumn from "./components/ProjectColumn";
@@ -24,11 +24,14 @@ if (oldProjects) {
 const App = () => {
   const [projects, setProjects] = useState(initialProjects);
   const [editProject, setEditProject] = useState(null);
+  const projectFormRef = useRef(null); // Ref for ProjectForm component
 
+  // Save projects to localStorage whenever they change
   useEffect(() => {
     localStorage.setItem("projects", JSON.stringify(projects));
   }, [projects]);
 
+  // Handle project update
   const handleUpdate = (updatedProject) => {
     const newProjects = projects.map((project) =>
       project.id === updatedProject.id ? updatedProject : project
@@ -36,9 +39,22 @@ const App = () => {
     setProjects(newProjects);
   };
 
+  // Handle project deletion
   const handleDelete = (projectId) => {
     const newProjects = projects.filter((project) => project.id !== projectId);
     setProjects(newProjects);
+  };
+
+  // Handle edit button click - scroll to form first, then load project
+  const handleEditProject = (project) => {
+    // First, scroll to the form
+    if (projectFormRef.current) {
+      projectFormRef.current.scrollToForm();
+    }
+    // Then set the project for editing
+    setTimeout(() => {
+      setEditProject(project);
+    }, 50); // Small delay for better UX
   };
 
   return (
@@ -56,18 +72,20 @@ const App = () => {
       </nav>
 
       <ProjectForm
+        ref={projectFormRef}
         setProjects={setProjects}
-        editProject={editProject} // pass for editing
-        setEditProject={setEditProject} // pass for editing
-        handleUpdate={handleUpdate} // pass for editing
+        editProject={editProject}
+        setEditProject={setEditProject}
+        handleUpdate={handleUpdate}
       />
+
       <main className="app_main">
         <ProjectColumn
           title="Upcoming"
           icon={upcomingIcon}
           projects={projects}
           status="upcoming"
-          onUpdate={setEditProject}
+          onUpdate={handleEditProject}
           onDelete={handleDelete}
         />
         <ProjectColumn
@@ -75,7 +93,7 @@ const App = () => {
           icon={inProgressIcon}
           projects={projects}
           status="inProgress"
-          onUpdate={setEditProject}
+          onUpdate={handleEditProject}
           onDelete={handleDelete}
         />
         <ProjectColumn
@@ -83,7 +101,7 @@ const App = () => {
           icon={completedIcon}
           projects={projects}
           status="completed"
-          onUpdate={setEditProject}
+          onUpdate={handleEditProject}
           onDelete={handleDelete}
         />
       </main>

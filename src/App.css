@@ -1,13 +1,18 @@
 .app {
-  display: grid;
+  display: flex;
   flex-direction: column;
-  grid-template-rows: 150px auto;
+  /* grid-template-rows: 150px auto; */
   padding-top: 120px; /* prevent content from hiding under navbar */
   min-height: 100vh; /* full height of the viewport */
 }
 
 .app_main {
-  flex: 1; /* occupies the remaining space */
+  /* flex: 1; occupies the remaining space */
+  display: flex;
+  flex-wrap: wrap; /* Allows page breakup on smaller screens */
+  justify-content: space-around;
+  padding: 20px 5%;
+  gap: 20px;
 }
 
 .navbar {
@@ -63,7 +68,12 @@
 }
 
 .project_column {
-  width: 33.33%;
+  /* width: 33.33%; */
   /* background-color: tomato; */
-  margin: 20px;
+  /* margin: 20px; */
+
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  margin: 10px;
 }

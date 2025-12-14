@@ -23,12 +23,12 @@ const ProjectColumn = ({
 
       {filteredProjects.map((project) => (
         <ProjectCard
-          key={project.id} // unique ID
-          id={project.id} // pass for deletion
+          key={project.id}
+          id={project.id}
           title={project.project}
           description={project.description}
           tags={project.tags}
-          onUpdate={() => onUpdate(project)} // pass full project
+          onUpdate={() => onUpdate(project)}
           onDelete={onDelete}
         />
       ))}
